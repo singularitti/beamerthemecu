@@ -44,7 +44,7 @@
 \newcommand{\@SINTEFlogo}{bluelogo}
 
 % Set colours
-% NOTE! Beamer colors should be set in the preamble. It often works fine in the 
+% NOTE! Beamer colors should be set in the preamble. It often works fine in the
 %       document itself, but NOT for normal text foreground.
 %       \themecolor should only be called from the preamble.
 \newcommand{\themecolor}[1]{
@@ -55,16 +55,16 @@
         \setbeamercolor{block title}{fg=sintefblue,bg=sintefgrey}
         \setbeamercolor{block body}{fg=sintefblue,bg=sintefgrey}
     }{%
-        \setbeamercolor{normal text}{fg=sintefblue,bg=white}
+        \setbeamercolor{normal text}{fg=darkgray,bg=white}
         \setbeamercolor{structure}{fg=sintefblue}
         \renewcommand{\@SINTEFlogo}{bluelogo}
-        \setbeamercolor{block title}{fg=white,bg=sintefblue}
-        \setbeamercolor{block body}{fg=white,bg=sintefblue}
+        \setbeamercolor{block title}{fg=airforceblue,bg=morelightgray}
+        \setbeamercolor{block body}{fg=darkgray,bg=morelightgray}
     }
 }
 \themecolor{white} % Default: white theme
 
-\setbeamercolor{title}{fg=sintefblue,bg=white}
+\setbeamercolor{title}{fg=sintefblue}
 \setbeamercolor{alerted text}{fg=sintefred}
 \setbeamercolor{author}{fg=black}
 \setbeamercolor{date}{fg=black}
@@ -76,7 +76,8 @@
 \setbeamerfont{frametitle}{series=\bfseries}
 \setbeamerfont{framesubtitle}{series=\mdseries}
 \setbeamerfont{footline}{size=\scriptsize}
-\setbeamerfont{block title}{series=\centering\bfseries}
+\setbeamerfont{block title}{series=\centering, size=\small}
+\setbeamerfont{block body}{size=\scriptsize}
 
 % Code to get prettier boxes
 \setbeamertemplate{blocks}[rounded]
@@ -109,10 +110,10 @@
 }
 
 % Define the title page
-\setbeamertemplate{title page}{%
-    \vskip0pt plus 1filll%
-    \hspace{-12mm}% Pull back the box in an inelegant way - but it works!
-    \begin{beamercolorbox}[wd=0.45\textwidth,sep=10pt,leftskip=8mm]{title}%
+\setbeamertemplate{title page}{
+    \vskip0pt plus 1filll
+    \hspace{-12mm} % Pull back the box in an inelegant way - but it works!
+    \begin{beamercolorbox}[wd=0.9\textwidth,sep=10pt,leftskip=8mm]{title}
         {\usebeamerfont{title}\inserttitle}
 
         {\usebeamerfont{subtitle}\insertsubtitle}
@@ -147,6 +148,7 @@
 
 \renewcommand{\maketitle}{
     \begingroup
+    \setbeamertemplate{footline}{}
     \ifdefempty{\@TitleBackground}{}{% Skip if \@TitleBackground is empty
         \setbeamertemplate{background}{%
             \ifbool{splittitle}{%
@@ -157,7 +159,7 @@
         }
     }
     \begin{frame}%
-        \titlepage%
+        \Large\titlepage%
     \end{frame}%
     \endgroup
 }
@@ -212,17 +214,19 @@
     \endgroup
 }
 
-\newcommand{\@SINTEFmotto}{Technology for a better society}
+\newcommand{\@SINTEFmotto}{}
 \newcommand{\setmotto}{\renewcommand{\@SINTEFmotto}}
 \newcommand{\backmatter}{
     \begingroup
     \setbeamertemplate{footline}{}
     \themecolor{blue}
-    \begin{frame}[c]
+    \begin{frame}[c]{}
         \centering
-        \begin{minipage}{0.4\textwidth}
+        \begin{minipage}{\textwidth}
             \usebeamercolor[fg]{normal text}
-            \centering\huge{\@SINTEFmotto}
+            \centering
+            \Huge $$\mathcal Q \& \mathcal A$$
+            \Large \textsl{Thank you for listening! \\ Your feedback will be highly appreciated!}
         \end{minipage}
     \end{frame}
     \endgroup
