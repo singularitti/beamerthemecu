@@ -1,7 +1,16 @@
 \ProvidesPackage{beamerthemecu}
 
+% Multiple footnote citations, see https://tex.stackexchange.com/a/123888/61591
+\RequirePackage{fnpct}
+\AdaptNote\footcite{oo+m}[footnote]{%
+\setfnpct{dont-mess-around}%
+\IfNoValueTF{#1}
+{#NOTE{#3}}
+{\IfNoValueTF{#2}
+{#NOTE[#1]{#3}}
+{#NOTE[#1][#2]{#3}}}}
+
 \RequirePackage{etoolbox}
-\RequirePackage{tikz}
 
 % Force 16:9 aspect ratio
 \RequirePackage{geometry}
@@ -11,7 +20,8 @@
 \RequirePackage{caladea,carlito}
 \renewcommand{\familydefault}{\sfdefault}
 
-\RequirePackage{graphicx,sintefcolor}
+\RequirePackage{graphicx}
+\RequirePackage{cucolors}
 
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
@@ -28,8 +38,8 @@
     \ifstrempty{#1}{%
         \renewcommand{\@footlinepayoff}{}
         \setbeamercolor{footline}{bg=}
-        \setbeamercolor{block title}{fg=white,bg=sintefblue}
-        \setbeamercolor{block body}{fg=white,bg=sintefblue}
+        \setbeamercolor{block title}{fg=white,bg=pms280c}
+        \setbeamercolor{block body}{fg=white,bg=pms280c}
     }{
         \renewcommand{\@footlinepayoff}{\@SINTEFmotto}
         \setbeamercolor{footline}{fg=white,bg=#1}
@@ -39,9 +49,9 @@
 }
 \footlinecolor{} % Default: no footline
 
-\pgfdeclareimage[width=0.09\paperwidth]{bluelogo}{images/SINTEF_Logo_Sentrert_RGB}
-\pgfdeclareimage[width=0.09\paperwidth]{whitelogo}{images/SINTEF_Logo_Sentrert_Negativ_RGB}
-\newcommand{\@SINTEFlogo}{bluelogo}
+\pgfdeclareimage[width=0.09\paperwidth]{bluelogo}{images/logo}
+\pgfdeclareimage[width=0.09\paperwidth]{whitelogo}{images/logo_inverted}
+\newcommand{\@CUlogo}{bluelogo}
 
 % Set colours
 % NOTE! Beamer colors should be set in the preamble. It often works fine in the
@@ -49,27 +59,32 @@
 %       \themecolor should only be called from the preamble.
 \newcommand{\themecolor}[1]{
     \ifstrequal{#1}{blue}{%
-        \setbeamercolor{normal text}{fg=white,bg=sintefblue}
-        \setbeamercolor{structure}{fg=white}
-        \renewcommand{\@SINTEFlogo}{whitelogo}
-        \setbeamercolor{block title}{fg=sintefblue,bg=sintefgrey}
-        \setbeamercolor{block body}{fg=sintefblue,bg=sintefgrey}
+        \setbeamercolor{normal text}{fg=pms290c,bg=pms280c}
+        \setbeamercolor{structure}{fg=pms290c}
+        \renewcommand{\@CUlogo}{whitelogo}
+        \setbeamercolor{block title}{fg=pms280c,bg=sintefgrey}
+        \setbeamercolor{block body}{fg=pms280c,bg=sintefgrey}
     }{%
         \setbeamercolor{normal text}{fg=darkgray,bg=white}
-        \setbeamercolor{structure}{fg=sintefblue}
-        \renewcommand{\@SINTEFlogo}{bluelogo}
-        \setbeamercolor{block title}{fg=airforceblue,bg=morelightgray}
+        \setbeamercolor{structure}{fg=pms280c}
+        \renewcommand{\@CUlogo}{bluelogo}
+        \setbeamercolor{block title}{fg=pms284c,bg=morelightgray}
         \setbeamercolor{block body}{fg=darkgray,bg=morelightgray}
     }
 }
 \themecolor{white} % Default: white theme
 
-\setbeamercolor{title}{fg=sintefblue}
-\setbeamercolor{alerted text}{fg=sintefred}
+\setbeamercolor{title}{fg=pms280c}
+\setbeamercolor{alerted text}{fg=pms286c}
 \setbeamercolor{author}{fg=black}
+\setbeamercolor{institute}{fg=black}
 \setbeamercolor{date}{fg=black}
+% See https://tex.stackexchange.com/questions/225218/how-to-change-the-color-of-bibitems
+\setbeamercolor*{bibliography entry note}{parent=palette primary}
+\setbeamercolor*{bibliography entry title}{parent=palette primary}
 
 \setbeamerfont{author}{size=\scriptsize}
+\setbeamerfont{institute}{size=\tiny}
 \setbeamerfont{date}{size=\tiny}
 \setbeamerfont{title}{series=\bfseries}
 \setbeamerfont{subtitle}{series=\mdseries,size=\footnotesize}
@@ -78,6 +93,7 @@
 \setbeamerfont{footline}{size=\scriptsize}
 \setbeamerfont{block title}{series=\centering, size=\small}
 \setbeamerfont{block body}{size=\scriptsize}
+\setbeamerfont{footnote}{size=\tiny}
 
 % Code to get prettier boxes
 \setbeamertemplate{blocks}[rounded]
@@ -98,11 +114,11 @@
 }
 
 % Put the logo in each slide's top left area
-\setbeamertemplate{headline}{\hspace{0.06\textwidth}\pgfuseimage{\@SINTEFlogo}}
+\setbeamertemplate{headline}{\hspace{0.06\textwidth}\pgfuseimage{\@CUlogo}}
 
 % Define frame title and subtitle layout
 \setbeamertemplate{frametitle}{%
-    \vspace*{-3.5ex}
+    \vspace*{-3.7ex}
     \begin{beamercolorbox}[leftskip=2cm]{frametitle}%
         \usebeamerfont{frametitle}\insertframetitle\\
         \usebeamerfont{framesubtitle}\insertframesubtitle
@@ -118,7 +134,13 @@
 
         {\usebeamerfont{subtitle}\insertsubtitle}
 
+        \vskip1em
+
         {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+
+        \vskip0.5em
+
+        {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}
 
         {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
     \end{beamercolorbox}
@@ -169,8 +191,8 @@
     \themecolor{blue}
     \setbeamertemplate{footline}{}
     \ifstrequal{#2}{sinteflightgreen}{ % Use blue text on light green, else white
-        \setbeamercolor{frametitle}{fg=sintefblue}
-        \setbeamercolor{normal text}{fg=sintefblue,bg=#2}
+        \setbeamercolor{frametitle}{fg=pms280c}
+        \setbeamercolor{normal text}{fg=pms280c,bg=#2}
     }{
         \setbeamercolor{frametitle}{fg=white}
         \setbeamercolor{normal text}{fg=white,bg=#2}
@@ -200,7 +222,7 @@
         \includegraphics[height=\paperheight]{#1}%
     }
     \setbeamertemplate{frametitle}{% Same as normal, but with right skip
-        \vspace*{-3.5ex}
+        \vspace*{-3.7ex}
         \begin{beamercolorbox}[leftskip=2cm,rightskip=0.4\textwidth]{frametitle}%
             \usebeamerfont{frametitle}\insertframetitle\\
             \usebeamerfont{framesubtitle}\insertframesubtitle
@@ -226,7 +248,7 @@
             \usebeamercolor[fg]{normal text}
             \centering
             \Huge $$\mathcal Q \& \mathcal A$$
-            \Large \textsl{Thank you for listening! \\ Your feedback will be highly appreciated!}
+            \Large \textsl{Thank you for listening!}
         \end{minipage}
     \end{frame}
     \endgroup
