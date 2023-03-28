@@ -1,5 +1,17 @@
 \ProvidesPackage{beamerthemecu}
 
+\RequirePackage{xcolor}
+% Main colour
+\definecolor{pms290c}{RGB/cmyk}{185,217,235/23,0,1,0} % PMS 290C
+\definecolor{pms284c}{RGB/cmyk}{108,172,228/59,17,0,0} % PMS 284C
+\definecolor{pms285c}{RGB/cmyk}{0,114,206/90,48,0,0} % PMS 285C
+\definecolor{pms286c}{RGB/cmyk}{0,51,160/100,75,0,0} % PMS 286C
+\definecolor{pms280c}{RGB/cmyk}{2,33,105/100,85,5,22} % PMS 280C
+\definecolor{morelightgray}{rgb}{0.9, 0.9, 0.9}
+% "Warm grey"
+\definecolor{sintefgrey}{RGB/cmyk}{235,235,230/0,0,0,.1}
+\colorlet{sintefgray}{sintefgrey}
+
 % Multiple footnote citations, see https://tex.stackexchange.com/a/123888/61591
 \RequirePackage{fnpct}
 \AdaptNote\footcite{oo+m}[footnote]{%
