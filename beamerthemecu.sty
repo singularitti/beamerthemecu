@@ -26,27 +26,6 @@
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
-\newcommand{\@footlinepayoff}{\@SINTEFmotto}
-\setbeamertemplate{footline}{%
-    \begin{beamercolorbox}[wd=\textwidth,ht=5mm,dp=3mm,rightskip=1cm]{footline}
-        \usebeamerfont{footline}\hfill\@footlinepayoff
-    \end{beamercolorbox}
-}
-
-% Set footline AND coordinate blocks with it
-\newcommand{\footlinecolor}[1]{% if #1 is empty, makes footline transparent
-    \ifstrempty{#1}{%
-        \renewcommand{\@footlinepayoff}{}
-        \setbeamercolor{footline}{bg=}
-        \setbeamercolor{block title}{fg=white,bg=pms280c}
-        \setbeamercolor{block body}{fg=white,bg=pms280c}
-    }{
-        \renewcommand{\@footlinepayoff}{\@SINTEFmotto}
-        \setbeamercolor{footline}{fg=white,bg=#1}
-        \setbeamercolor{block title}{fg=white,bg=#1}
-        \setbeamercolor{block body}{fg=white,bg=#1}
-    }%
-}
 \footlinecolor{} % Default: no footline
 
 \pgfdeclareimage[width=0.09\paperwidth]{bluelogo}{images/logo}
@@ -236,8 +215,6 @@
     \endgroup
 }
 
-\newcommand{\@SINTEFmotto}{}
-\newcommand{\setmotto}{\renewcommand{\@SINTEFmotto}}
 \newcommand{\backmatter}{
     \begingroup
     \setbeamertemplate{footline}{}
