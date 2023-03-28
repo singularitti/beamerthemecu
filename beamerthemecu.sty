@@ -242,3 +242,98 @@
     \end{frame}
     \endgroup
 }
+
+\usepackage{amsfonts,amsmath,oldgerm,lmodern,animate}
+
+\usefonttheme{serif}
+
+% Style of section presented in the table of contents
+\setbeamertemplate{section in toc}{$\blacktriangleright$~\inserttocsection}
+
+% Style of subsection presented in the table of contents
+\setbeamertemplate{subsection in toc}{}
+\setbeamertemplate{subsection in toc}{\footnotesize\hspace{1.2 em}$\blacktriangleright$~\inserttocsubsection}
+
+% Automate subtitle of each frame
+\makeatletter
+\pretocmd\beamer@checkframetitle{\framesubtitle{\thesection \, \secname}}
+\makeatother
+
+% Avoid numbering of frames that are breaked into multiply slides
+\setbeamertemplate{frametitle continuation}{}
+
+% At the begining of section, add table of contents with the current section highlighted
+\AtBeginSection[]
+{
+    \begingroup
+    \setbeamertemplate{footline}{}
+    \themecolor{blue}
+    \begin{frame}{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+    \endgroup
+}
+
+% At the beginning of subsection, add subsection title page
+\AtBeginSubsection[]
+{
+    \begin{frame}{\,}{\thesection \, \secname}
+        \fontfamily{ptm}\selectfont
+        \centering\textsl{\textbf{\textcolor{pms280c}{
+                    \large Section \thesection.\thesubsection
+                    \vskip15pt
+                    \LARGE \subsecname
+                }}}
+    \end{frame}
+}
+
+\newcommand{\hrefcol}[2]{\textcolor{pms284c}{\href{#1}{#2}}}
+\newcommand{\hlinkcol}[1]{\hrefcol{#1}{#1}}
+
+% Centering paragraph statement
+\newcommand{\centerstate}[1]{
+    \centering
+    \begin{columns}
+        \begin{column}{0.8\textwidth}
+            #1
+        \end{column}
+    \end{columns}
+}
+
+% Colored textbf
+\newcommand{\ctextbf}[1]{\textbf{\textcolor{pms280c}{#1}}}
+\newcommand{\btextbf}[1]{\textbf{\textcolor{pms284c}{#1}}}
+% Colored textsl
+\newcommand{\ctextsl}[1]{\textsl{\textcolor{pms280c}{#1}}}
+\newcommand{\btextsl}[1]{\textsl{\textcolor{pms284c}{#1}}}
+% Colored emph
+\newcommand{\cemph}[1]{\emph{\textcolor{pms280c}{#1}}}
+\newcommand{\bemph}[1]{\emph{\textcolor{pms284c}{#1}}}
+
+% About page
+\newcommand{\aboutpage}[2]{
+    \begingroup
+    \setbeamertemplate{footline}{}
+    \themecolor{blue}
+    \begin{frame}[c]{#1}{\,}
+        \centering
+        \begin{minipage}{\textwidth}
+            \usebeamercolor[fg]{normal text}
+            \centering
+            \Large \textsl{\normalsize #2}
+        \end{minipage}
+    \end{frame}
+    \endgroup
+}
+
+% Bibliography page
+\newcommand{\bibliographpage}{
+    \section{References}
+    \begingroup
+    \themecolor{blue}
+    \begin{frame}[allowframebreaks]{References}{\,}
+        \tiny
+        \printbibliography[heading=none]
+    \end{frame}
+    \endgroup
+}
