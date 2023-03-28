@@ -43,20 +43,20 @@
 
 \pgfdeclareimage[width=0.09\paperwidth]{bluelogo}{images/logo}
 \pgfdeclareimage[width=0.09\paperwidth]{whitelogo}{images/logo_inverted}
-\newcommand{\@CUlogo}{bluelogo}
+\newcommand{\@CUlogo}{logo}
 
 % Set colours
 \newcommand{\themecolor}[1]{
     \ifstrequal{#1}{blue}{%
         \setbeamercolor{normal text}{fg=pms290c,bg=pms280c}
         \setbeamercolor{structure}{fg=pms290c}
-        \renewcommand{\@CUlogo}{whitelogo}
+        \renewcommand{\@CUlogo}{logo_inverted}
         \setbeamercolor{block title}{fg=pms280c,bg=sintefgrey}
         \setbeamercolor{block body}{fg=pms280c,bg=sintefgrey}
     }{%
         \setbeamercolor{normal text}{fg=darkgray,bg=white}
         \setbeamercolor{structure}{fg=pms280c}
-        \renewcommand{\@CUlogo}{bluelogo}
+        \renewcommand{\@CUlogo}{logo}
         \setbeamercolor{block title}{fg=pms284c,bg=morelightgray}
         \setbeamercolor{block body}{fg=darkgray,bg=morelightgray}
     }
