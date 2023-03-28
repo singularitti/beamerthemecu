@@ -1,1 +1,1 @@
-# Columbia-University-beamer-template
+# Columbia University beamer theme
