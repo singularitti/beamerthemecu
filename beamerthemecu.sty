@@ -1,17 +1,17 @@
 \ProvidesPackage{beamerthemecu}
 
+\RequirePackage{fontspec}
 \RequirePackage{amsfonts}
 \RequirePackage{amsmath}
 \RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
-
-\RequirePackage{fontspec}
 \setmainfont{EB Garamond}
 \setsansfont{EB Garamond}
 \setmonofont{EB Garamond}
-\setmathfont{Garamond-Math}[StylisticSet={6,7,8,9}]
+\setmathfont{Garamond-Math}[StylisticSet={6,7,8,9}] % See https://tex.stackexchange.com/a/572838/61591
 % If you want a script-style \mathscr in addition to
 % the calligraphic-style \mathcal, add:
 \setmathfont{Garamond-Math}[range={scr,bfscr}]
+\setmathfont[version=bold]{XITS Math} % Fallback for bold symbols
 \newfontfamily{\trajan}{Trajan Pro}
 
 \RequirePackage{xcolor}
