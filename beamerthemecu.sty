@@ -1,5 +1,9 @@
 \ProvidesPackage{beamerthemecu}
 
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
+
 \RequirePackage{fontspec}
 \setmainfont{EB Garamond}
 \setsansfont{EB Garamond}
@@ -257,8 +261,6 @@
     \end{frame}
     \endgroup
 }
-
-\usepackage{amsfonts,amsmath}
 
 % Style of section presented in the table of contents
 \setbeamertemplate{section in toc}{\(\blacktriangleright\)~\inserttocsection}
