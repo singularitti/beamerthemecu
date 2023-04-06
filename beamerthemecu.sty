@@ -1,5 +1,11 @@
 \ProvidesPackage{beamerthemecu}
 
+\RequirePackage{fontspec}
+\setmainfont{EB Garamond}
+\setsansfont{EB Garamond}
+\setmonofont{EB Garamond}
+\newfontfamily{\trajan}{Trajan Pro}
+
 \RequirePackage{xcolor}
 % Main colour
 \definecolor{pms290c}{RGB/cmyk}{185,217,235/23,0,1,0} % PMS 290C
@@ -72,12 +78,12 @@
 \setbeamerfont{author}{size=\scriptsize}
 \setbeamerfont{institute}{size=\tiny}
 \setbeamerfont{date}{size=\tiny}
-\setbeamerfont{title}{series=\bfseries}
-\setbeamerfont{subtitle}{series=\mdseries,size=\footnotesize}
-\setbeamerfont{frametitle}{series=\bfseries}
-\setbeamerfont{framesubtitle}{series=\mdseries}
+\setbeamerfont{title}{series=\bfseries,family=\trajan}
+\setbeamerfont{subtitle}{series=\mdseries,size=\footnotesize,family=\trajan}
+\setbeamerfont{frametitle}{series=\bfseries,family=\trajan}
+\setbeamerfont{framesubtitle}{series=\mdseries,family=\trajan}
 \setbeamerfont{footline}{size=\scriptsize}
-\setbeamerfont{block title}{series=\centering, size=\small}
+\setbeamerfont{block title}{series=\centering,size=\small}
 \setbeamerfont{block body}{size=\scriptsize}
 \setbeamerfont{footnote}{size=\tiny}
 
