@@ -228,6 +228,13 @@
     \endgroup
 }
 
+\DeclareRobustCommand{\&}{% Get slanted `&`, see https://tex.stackexchange.com/a/429330/61591
+    \ifdim\fontdimen1\font>0pt
+        \textsl{\symbol{`\&}}%
+    \else
+        \symbol{`\&}%
+    \fi
+}
 \newcommand{\backmatter}{
     \begingroup
     \setbeamertemplate{footline}{}
@@ -237,7 +244,7 @@
         \begin{minipage}{\textwidth}
             \usebeamercolor[fg]{normal text}
             \centering
-            \Huge \(\mathcal{Q}\) \& \(\mathcal{A}\)\\
+            \Huge \(\mathcal{Q}\) \thinspace \textit{\&} \(\mathcal{A}\)\\
             \Large \textsl{Thank you for listening!}
         \end{minipage}
     \end{frame}
