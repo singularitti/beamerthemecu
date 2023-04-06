@@ -35,5 +35,5 @@ load the theme in your preamble with:
 ```
 
 I hope you enjoy this theme and find it useful for your presentations. If you have any
-feedback, suggestions or bug reports, please feel free to contact me or open an issue on
-GitHub.
+feedback, suggestions or bug reports, please feel free to contact me or
+[open an issue on GitHub](https://github.com/singularitti/beamerthemecu/issues/new).
