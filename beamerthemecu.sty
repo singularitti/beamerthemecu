@@ -352,6 +352,12 @@
     \begingroup
     \setbeamertemplate{footline}{}
     \themecolor{blue}
+    \setbeamertemplate{frametitle}{%
+        \vspace*{-6.4mm}
+        \begin{beamercolorbox}[leftskip=1.8cm]{frametitle}%
+            \usebeamerfont{frametitle}\insertframetitle
+        \end{beamercolorbox}
+    }
     \begin{frame}[allowframebreaks]{References}{\,}
         \tiny
         \printbibliography[heading=none]
