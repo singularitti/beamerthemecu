@@ -47,6 +47,9 @@
 
 \RequirePackage{graphicx}
 
+\RequirePackage{hyperref}
+\renewcommand{\href}[2]{\hyperlink{#1}{\textcolor{pms280c}{#2}}}
+
 % No navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
@@ -306,9 +309,6 @@
                 }}}
     \end{frame}
 }
-
-\newcommand{\hrefcol}[2]{\textcolor{pms284c}{\href{#1}{#2}}}
-\newcommand{\hlinkcol}[1]{\hrefcol{#1}{#1}}
 
 % Centering paragraph statement
 \newcommand{\centerstate}[1]{
