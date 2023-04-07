@@ -279,6 +279,9 @@
 % Avoid numbering of frames that are breaked into multiply slides
 \setbeamertemplate{frametitle continuation}{}
 
+% Reset footnote counter for each frame, see https://tex.stackexchange.com/a/530528/61591
+\AtBeginEnvironment{frame}{\setcounter{footnote}{0}}
+
 % At the begining of section, add table of contents with the current section highlighted
 \AtBeginSection[]
 {
