@@ -12,7 +12,12 @@
 % the calligraphic-style \mathcal, add:
 \setmathfont{Garamond-Math}[range={scr,bfscr}]
 \setmathfont[version=bold]{XITS Math} % Fallback for bold symbols
-\newfontfamily{\trajan}{Trajan Pro}
+\newfontfamily{\cinzel}{Cinzel}[
+    Mapping=tex-text,
+    AutoFakeSlant,
+    BoldFont={* Medium},
+]
+\newfontfamily{\cinzelSemibold}{Cinzel Semibold}
 
 \RequirePackage{xcolor}
 % Main colour, see https://visualidentity.columbia.edu/content/colors-1
