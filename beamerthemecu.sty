@@ -145,7 +145,8 @@
 
         \vskip0.5em
 
-        {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}
+        % The `\parbox{\linewidth}{\insertinstitute}` command ensures that the institute information is wrapped properly within the available width of the `beamercolorbox`.
+        {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\parbox{\linewidth}{\insertinstitute}}
 
         \ifx\insertdate\empty % See https://tex.stackexchange.com/a/479919
         \else
