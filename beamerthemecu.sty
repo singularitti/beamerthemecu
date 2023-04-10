@@ -15,16 +15,13 @@
 \newfontfamily{\trajan}{Trajan Pro}
 
 \RequirePackage{xcolor}
-% Main colour
+% Main colour, see https://visualidentity.columbia.edu/content/colors-1
 \definecolor{pms290c}{RGB/cmyk}{185,217,235/23,0,1,0} % PMS 290C
 \definecolor{pms284c}{RGB/cmyk}{108,172,228/59,17,0,0} % PMS 284C
 \definecolor{pms285c}{RGB/cmyk}{0,114,206/90,48,0,0} % PMS 285C
 \definecolor{pms286c}{RGB/cmyk}{0,51,160/100,75,0,0} % PMS 286C
 \definecolor{pms280c}{RGB/cmyk}{2,33,105/100,85,5,22} % PMS 280C
 \definecolor{morelightgray}{rgb}{0.9, 0.9, 0.9}
-% "Warm grey"
-\definecolor{sintefgrey}{RGB/cmyk}{235,235,230/0,0,0,.1}
-\colorlet{sintefgray}{sintefgrey}
 
 \RequirePackage[style=numeric,autocite=footnote,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 
@@ -63,14 +60,14 @@
         \setbeamercolor{normal text}{fg=pms290c,bg=pms280c}
         \setbeamercolor{structure}{fg=pms290c}
         \renewcommand{\@CUlogo}{logo_inverted}
-        \setbeamercolor{block title}{fg=pms280c,bg=sintefgrey}
-        \setbeamercolor{block body}{fg=pms280c,bg=sintefgrey}
+        \setbeamercolor{block title}{fg=pms280c,bg=pms290c}
+        \setbeamercolor{block body}{fg=pms280c,bg=pms290c}
     }{%
         \setbeamercolor{normal text}{fg=darkgray,bg=white}
         \setbeamercolor{structure}{fg=pms280c}
         \renewcommand{\@CUlogo}{logo}
-        \setbeamercolor{block title}{fg=pms284c,bg=morelightgray}
-        \setbeamercolor{block body}{fg=darkgray,bg=morelightgray}
+        \setbeamercolor{block title}{fg=pms284c,bg=pms284c}
+        \setbeamercolor{block body}{fg=darkgray,bg=pms284c}
     }
 }
 \themecolor{white} % Default: white theme
