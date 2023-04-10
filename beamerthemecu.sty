@@ -119,15 +119,6 @@
 % Put the logo in each slide's top left area
 \setbeamertemplate{headline}{\hspace{0.0594375\textwidth}\pgfuseimage{\@CUlogo}}
 
-% Define frame title and subtitle layout
-\setbeamertemplate{frametitle}{%
-    \vspace*{-8.126mm}
-    \begin{beamercolorbox}[leftskip=1.8cm]{frametitle}%
-        \usebeamerfont{frametitle}\insertframetitle\\
-        \usebeamerfont{framesubtitle}\insertframesubtitle
-    \end{beamercolorbox}
-}
-
 \setbeamertemplate{footline}{%
     \hfill\usebeamertemplate{page number}\hspace*{1em}\vskip2pt%
 }
@@ -281,9 +272,28 @@
 \setbeamertemplate{subsection in toc}{}
 \setbeamertemplate{subsection in toc}{\footnotesize\hspace{1.2 em}\(\blacktriangleright\)~\inserttocsubsection}
 
+\newcommand{\emptysubtitle}{\gdef\ifemptysubtitle{\relax}}
 % Automate subtitle of each frame
 \makeatletter
-\pretocmd\beamer@checkframetitle{\framesubtitle{\thesection \, \secname}}
+% Define frame title and subtitle layout
+\setbeamertemplate{frametitle}{%
+    \ifx\insertframesubtitle\@empty%
+    \ifx\ifemptysubtitle\undefined%
+        \framesubtitle{\thesection \, \secname}%
+        \vspace*{-8.126mm}
+        \begin{beamercolorbox}[leftskip=1.8cm]{frametitle}%
+            \usebeamerfont{frametitle}\insertframetitle\\
+            \usebeamerfont{framesubtitle}\insertframesubtitle%
+        \end{beamercolorbox}
+    \else%
+        \global\let\ifemptysubtitle\undefined%
+            \vspace*{-6.4mm}
+            \begin{beamercolorbox}[leftskip=1.8cm]{frametitle}%
+                \usebeamerfont{frametitle}\insertframetitle
+            \end{beamercolorbox}
+        \fi%
+    \fi%
+}
 \makeatother
 
 % Avoid numbering of frames that are breaked into multiply slides
