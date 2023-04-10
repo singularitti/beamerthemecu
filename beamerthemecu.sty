@@ -147,7 +147,11 @@
 
         {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}
 
-        {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+        \ifx\insertdate\empty % See https://tex.stackexchange.com/a/479919
+        \else
+            \vskip1mm
+            {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}
+        \fi
     \end{beamercolorbox}
 }
 
