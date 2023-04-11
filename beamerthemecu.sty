@@ -11,12 +11,6 @@
 % the calligraphic-style \mathcal, add:
 \setmathfont{Garamond-Math}[range={scr,bfscr}]
 \setmathfont[version=bold]{XITS Math} % Fallback for bold symbols
-\newfontfamily{\cinzel}{Cinzel}[
-    Ligatures=TeX,
-    AutoFakeSlant,
-    BoldFont={* Medium},
-]
-\newfontfamily{\cinzelSemibold}{Cinzel Semibold}
 
 \RequirePackage{xcolor}
 % Main colour, see https://visualidentity.columbia.edu/content/colors-1
@@ -88,10 +82,10 @@
 \setbeamerfont{author}{size=\scriptsize}
 \setbeamerfont{institute}{size=\tiny}
 \setbeamerfont{date}{size=\tiny}
-\setbeamerfont{title}{series=\bfseries,family=\cinzelSemibold}
-\setbeamerfont{subtitle}{series=\bfseries,size=\footnotesize,family=\cinzel}
-\setbeamerfont{frametitle}{series=\bfseries,family=\cinzelSemibold}
-\setbeamerfont{framesubtitle}{series=\bfseries,family=\cinzel}
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{subtitle}{series=\bfseries,size=\footnotesize}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{framesubtitle}{series=\bfseries}
 \setbeamerfont{footline}{size=\scriptsize}
 \setbeamerfont{block title}{series=\centering,size=\small}
 \setbeamerfont{block body}{size=\scriptsize}
