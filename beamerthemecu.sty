@@ -4,8 +4,16 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amsmath}
 \RequirePackage[math-style=ISO, bold-style=ISO]{unicode-math}
-\setmainfont{EB Garamond}
-\setsansfont{EB Garamond}
+\setmainfont{EB Garamond}[
+    BoldFont={* Medium},
+    BoldItalicFont={* Medium Italic},
+    Ligatures=TeX,
+]
+\setsansfont{EB Garamond}[
+    BoldFont={* Medium},
+    BoldItalicFont={* Medium Italic},
+    Ligatures=TeX,
+]
 \setmathfont{Garamond-Math}[StylisticSet={6,7,8,9}] % See https://tex.stackexchange.com/a/572838/61591
 % If you want a script-style \mathscr in addition to
 % the calligraphic-style \mathcal, add:
