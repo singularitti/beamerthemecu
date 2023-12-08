@@ -1,5 +1,8 @@
 # Columbia University beamer theme
 
+This template is now available on
+[Overleaf](https://www.overleaf.com/latex/templates/columbia-university-beamer-theme/ddnqdjrqdrgg).
+
 `beamerthemecu` is a custom Beamer theme designed specifically for presentations associated
 with Columbia University in the City of New York. This theme is inspired by and based on the
 SINTEF theme, originally created by Federico Zenith (federico.zenith@sintef.no). The theme
